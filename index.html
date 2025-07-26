@@ -14,10 +14,10 @@
             </div>
             <nav class="menu">
                 <ul>
-                    <li><a href="#" class="active">Mis cursos</a></li>
-                    <li><a href="#">Catálogo</a></li>
-                    <li><a href="#">Historial de certificaciones</a></li>
-                    <li><a href="#">Perfil</a></li>
+        <li><a href="#mis-cursos" class="active">Mis cursos</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#certificaciones">Historial de certificaciones</a></li>
+        <li><a href="#perfil">Perfil</a></li>
                 </ul>
             </nav>
         </aside>
@@ -28,16 +28,76 @@
                     <span>Bienvenido, Usuario</span>
                 </div>
             </header>
-            <section class="dashboard">
-                <!-- Las tarjetas de cursos se insertarán aquí dinámicamente -->
+            <section id="mis-cursos" class="view active">
+                <div class="dashboard">
+                    <!-- Las tarjetas de cursos se insertarán aquí dinámicamente -->
+                </div>
+                <div class="importer">
+                    <h2>Importar Cursos</h2>
+                    <input type="file" id="file-input" accept=".csv, .xlsx">
+                    <button id="import-button">Importar</button>
+                </div>
             </section>
-            <section class="importer">
-                <h2>Importar Cursos</h2>
-                <input type="file" id="file-input" accept=".csv, .xlsx">
-                <button id="import-button">Importar</button>
+
+            <section id="catalogo" class="view">
+                <div class="toolbar">
+                    <button id="add-course-button" class="btn btn-primary">Añadir Nuevo Curso</button>
+                    <button id="export-csv-button" class="btn">Exportar a CSV</button>
+                    <button id="export-excel-button" class="btn">Exportar a Excel</button>
+                </div>
+                <div class="table-container">
+                    <table id="courses-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre del Curso</th>
+                                <th>Instructor</th>
+                                <th>Duración</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Las filas de cursos se insertarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="certificaciones" class="view">
+                <h2>Historial de Certificaciones</h2>
+                <!-- Contenido de certificaciones -->
+            </section>
+
+            <section id="perfil" class="view">
+                <h2>Mi Perfil</h2>
+                <!-- Contenido del perfil -->
             </section>
         </main>
     </div>
+
+    <!-- Modal para Añadir/Editar Curso -->
+    <div id="course-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title">Añadir Nuevo Curso</h2>
+            <form id="course-form">
+                <input type="hidden" id="course-id">
+                <div class="form-group">
+                    <label for="course-name">Nombre del Curso</label>
+                    <input type="text" id="course-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="course-instructor">Instructor</label>
+                    <input type="text" id="course-instructor" required>
+                </div>
+                <div class="form-group">
+                    <label for="course-duration">Duración</label>
+                    <input type="text" id="course-duration" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/importer.js"></script>
