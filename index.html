@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Learning & Training Interno</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Portal de Formación</h2>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#" class="active">Mis cursos</a></li>
+                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="#">Historial de certificaciones</a></li>
+                    <li><a href="#">Perfil</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <h1>Mis cursos</h1>
+                <div class="user-profile">
+                    <span>Bienvenido, Usuario</span>
+                </div>
+            </header>
+            <section class="dashboard">
+                <!-- Las tarjetas de cursos se insertarán aquí dinámicamente -->
+            </section>
+            <section class="importer">
+                <h2>Importar Cursos</h2>
+                <input type="file" id="file-input" accept=".csv, .xlsx">
+                <button id="import-button">Importar</button>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/importer.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/reporter.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

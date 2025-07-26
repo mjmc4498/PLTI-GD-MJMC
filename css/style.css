@@ -1,0 +1,154 @@
+:root {
+    --primary-color: #005f73;
+    --secondary-color: #00a896;
+    --background-color: #f4f7f9;
+    --text-color: #333;
+    --card-bg-color: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    display: flex;
+    transition: margin-left 0.3s;
+}
+
+/* Menú lateral */
+.sidebar {
+    width: 250px;
+    background-color: var(--card-bg-color);
+    height: 100vh;
+    position: fixed;
+    box-shadow: 2px 0 5px var(--shadow-color);
+    transition: width 0.3s;
+}
+
+.logo {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.menu ul li a:hover, .menu ul li a.active {
+    background-color: #e0f7fa;
+    color: var(--primary-color);
+    border-left-color: var(--primary-color);
+}
+
+/* Contenido principal */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Tarjetas de cursos */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.course-card {
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--hover-shadow-color);
+}
+
+.course-card h3 {
+    margin-top: 0;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 10px;
+    margin-top: 10px;
+}
+
+.progress {
+    background-color: var(--secondary-color);
+    height: 100%;
+    border-radius: 5px;
+}
+
+/* Importador de archivos */
+.importer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+#import-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#import-button:hover {
+    background-color: #004d5a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        box-shadow: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+}
