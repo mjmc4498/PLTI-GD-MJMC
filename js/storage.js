@@ -1,11 +1,20 @@
 // Módulo para gestionar el almacenamiento en localStorage
 const storage = {
-    getCourses: () => {
-        return JSON.parse(localStorage.getItem('courses')) || [];
+    // Catálogo completo de cursos
+    getAllCourses: () => {
+        return JSON.parse(localStorage.getItem('allCourses')) || [];
     },
-    saveCourses: (courses) => {
-        localStorage.setItem('courses', JSON.stringify(courses));
+    saveAllCourses: (courses) => {
+        localStorage.setItem('allCourses', JSON.stringify(courses));
     },
+    // IDs de los cursos del usuario
+    getMyCourseIds: () => {
+        return JSON.parse(localStorage.getItem('myCourseIds')) || [];
+    },
+    saveMyCourseIds: (courseIds) => {
+        localStorage.setItem('myCourseIds', JSON.stringify(courseIds));
+    },
+    // Progreso del usuario en los cursos
     getUserProgress: () => {
         return JSON.parse(localStorage.getItem('userProgress')) || {};
     },

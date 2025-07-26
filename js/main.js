@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (hash === '#catalogo') {
             renderCoursesTable();
+        } else if (hash === '#mis-cursos') {
+            renderMyCoursesDashboard();
         }
     };
 
@@ -62,15 +64,15 @@ document.addEventListener('DOMContentLoaded', () => {
     courseForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const courseId = document.getElementById('course-id').value;
-        const courses = storage.getCourses();
+        const allCourses = storage.getAllCourses();
 
         if (courseId) {
             // --- Lógica de Actualizar ---
-            const courseIndex = courses.findIndex(c => c.id == courseId);
+            const courseIndex = allCourses.findIndex(c => c.id == courseId);
             if (courseIndex > -1) {
-                courses[courseIndex].nombre = document.getElementById('course-name').value;
-                courses[courseIndex].instructor = document.getElementById('course-instructor').value;
-                courses[courseIndex].duracion = document.getElementById('course-duration').value;
+                allCourses[courseIndex].nombre = document.getElementById('course-name').value;
+                allCourses[courseIndex].instructor = document.getElementById('course-instructor').value;
+                allCourses[courseIndex].duracion = document.getElementById('course-duration').value;
             }
         } else {
             // --- Lógica de Crear ---
@@ -80,10 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 instructor: document.getElementById('course-instructor').value,
                 duracion: document.getElementById('course-duration').value,
             };
-            courses.push(newCourse);
+            allCourses.push(newCourse);
         }
 
-        storage.saveCourses(courses);
+        storage.saveAllCourses(allCourses);
         renderCoursesTable();
         closeModal();
     });

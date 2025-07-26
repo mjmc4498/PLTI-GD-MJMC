@@ -18,8 +18,8 @@ document.getElementById('import-button').addEventListener('click', () => {
         console.log('Datos importados:', jsonData);
 
         // Guardar cursos en el almacenamiento local
-        storage.saveCourses(jsonData);
-        alert('Cursos importados con éxito.');
+        storage.saveAllCourses(jsonData);
+        alert('Cursos importados con éxito al catálogo.');
     };
 
     reader.readAsArrayBuffer(file);
