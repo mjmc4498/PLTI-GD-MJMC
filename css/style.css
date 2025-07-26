@@ -94,6 +94,17 @@ header {
 
 .course-card h3 {
     margin-top: 0;
+    color: var(--primary-color);
+}
+
+.course-card .instructor {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.progress-container {
+    margin-bottom: 15px;
 }
 
 .progress-bar {
@@ -101,13 +112,37 @@ header {
     background-color: #e0e0e0;
     border-radius: 5px;
     height: 10px;
-    margin-top: 10px;
+    overflow: hidden; /* Asegura que el progreso no se salga */
 }
 
 .progress {
     background-color: var(--secondary-color);
     height: 100%;
     border-radius: 5px;
+    width: 0%; /* Inicia en 0 */
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-text {
+    font-size: 0.8em;
+    text-align: right;
+    color: #555;
+}
+
+.course-card .btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.course-card .btn:hover {
+    transform: scale(1.05);
+}
+
+.course-card .btn.completed {
+    background-color: #28a745; /* Verde para completado */
+    cursor: default;
 }
 
 /* Importador de archivos */
