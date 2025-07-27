@@ -14,7 +14,8 @@
             </div>
             <nav class="menu">
                 <ul>
-        <li><a href="#mis-cursos" class="active">Mis cursos</a></li>
+        <li><a href="#dashboard" class="active">Dashboard</a></li>
+        <li><a href="#mis-cursos">Mis cursos</a></li>
         <li><a href="#catalogo">Catálogo</a></li>
         <li><a href="#certificaciones">Historial de certificaciones</a></li>
         <li><a href="#perfil">Perfil</a></li>
@@ -28,7 +29,31 @@
                     <span>Bienvenido, Usuario</span>
                 </div>
             </header>
-            <section id="mis-cursos" class="view active">
+            <section id="dashboard" class="view active">
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="value" id="kpi-in-progress">0</div>
+                        <div class="label">Cursos en Progreso</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value" id="kpi-completed">0</div>
+                        <div class="label">Cursos Completados</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value" id="kpi-certifications">0</div>
+                        <div class="label">Certificaciones</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value" id="kpi-avg-score">N/A</div>
+                        <div class="label">Promedio General</div>
+                    </div>
+                </div>
+                <div class="charts-container">
+                    <canvas id="courses-chart"></canvas>
+                </div>
+            </section>
+
+            <section id="mis-cursos" class="view">
                 <div class="dashboard">
                     <!-- Las tarjetas de cursos se insertarán aquí dinámicamente -->
                 </div>

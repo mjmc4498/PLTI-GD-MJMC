@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.hash) {
         switchView(window.location.hash);
     } else {
-        switchView('#mis-cursos');
+        switchView('#dashboard');
     }
 
     // --- MODAL Y FORMULARIO DE CURSOS ---
