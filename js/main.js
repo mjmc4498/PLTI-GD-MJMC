@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
             renderCoursesTable();
         } else if (hash === '#mis-cursos') {
             renderMyCoursesDashboard();
+        } else if (hash === '#certificaciones') {
+            renderCertifications();
         }
     };
 

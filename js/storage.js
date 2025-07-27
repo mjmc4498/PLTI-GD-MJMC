@@ -20,5 +20,12 @@ const storage = {
     },
     saveUserProgress: (progress) => {
         localStorage.setItem('userProgress', JSON.stringify(progress));
+    },
+    // Certificaciones del usuario
+    getCertifications: () => {
+        return JSON.parse(localStorage.getItem('userCertifications')) || [];
+    },
+    saveCertifications: (certifications) => {
+        localStorage.setItem('userCertifications', JSON.stringify(certifications));
     }
 };
