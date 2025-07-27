@@ -1,9 +1,15 @@
+import { renderCoursesTable, initCourseForm } from './module-catalogo.js';
+import { renderMyCoursesDashboard } from './module-mis-cursos.js';
+import { renderCertifications } from './module-certificaciones.js';
+import { renderProfile } from './module-perfil.js';
+import { renderDashboard } from './module-dashboard.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     // --- NAVEGACIÓN ---
     const menuLinks = document.querySelectorAll('.menu a');
     const views = document.querySelectorAll('.view');
 
-    const switchView = (hash) => {
+    const switchView = async (hash) => {
         views.forEach(view => view.classList.remove('active'));
         menuLinks.forEach(link => link.classList.remove('active'));
 
@@ -13,12 +19,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (targetView) targetView.classList.add('active');
         if (targetLink) targetLink.classList.add('active');
 
-        if (hash === '#catalogo') {
-            renderCoursesTable();
-        } else if (hash === '#mis-cursos') {
-            renderMyCoursesDashboard();
-        } else if (hash === '#certificaciones') {
-            renderCertifications();
+        // Carga dinámica de módulos
+        switch (hash) {
+            case '#dashboard':
+                await import('./module-dashboard.js').then(module => module.renderDashboard());
+                break;
+            case '#mis-cursos':
+                await import('./module-mis-cursos.js').then(module => module.renderMyCoursesDashboard());
+                break;
+            case '#catalogo':
+                await import('./module-catalogo.js').then(module => {
+                    module.renderCoursesTable();
+                    module.initCourseForm();
+                });
+                break;
+            case '#certificaciones':
+                await import('./module-certificaciones.js').then(module => module.renderCertifications());
+                break;
+            case '#perfil':
+                await import('./module-perfil.js').then(module => module.renderProfile());
+                break;
         }
     };
 

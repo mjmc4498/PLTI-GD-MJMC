@@ -1,5 +1,5 @@
 // Módulo para gestionar el almacenamiento en localStorage
-const storage = {
+export const storage = {
     // Catálogo completo de cursos
     getAllCourses: () => {
         return JSON.parse(localStorage.getItem('allCourses')) || [];
